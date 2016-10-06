@@ -1,0 +1,55 @@
+{% extends "home.html"%}
+
+
+{% block titre%} Résultat  {%endblock%}
+
+{% block container%}
+
+{% if erreur is undefined %}
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h2 class="text-center">
+							Solution
+						</h2>
+					</div>
+					<div class="body">
+						
+						<div class="well">
+						{% for i in range(dimension)%}
+							{% for j in range(dimension)%}
+								<input class="btn btn-primary"type="text" size="5"  disabled value="{{matrice[i][j]}}"/>	
+							{% endfor %}
+							<br/>
+							<br/>		
+						{% endfor %}
+									
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+
+{%else%}
+	<div class="alert alert-dismissable alert-warning">
+    	<button type="button" class="close" data-dismiss="alert">×</button>
+    	<h4>Attention!</h4>
+    	<p>Impossible d'inverser cette matrice !</p>
+	</div>
+	
+   <script>
+    document.location.href="/";
+   </script>
+
+
+{%endif%}
+
+{%endblock%}

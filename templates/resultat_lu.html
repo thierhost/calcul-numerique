@@ -1,0 +1,54 @@
+{% extends "home.html"%}
+
+
+{% block titre%} Résultat  {%endblock%}
+
+{% block container%}
+
+{% if erreur is undefined %}
+<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h2 class="text-center">
+							Solutionn de l'équation Ax=b
+						</h2>
+					</div>
+					<div class="body">
+						
+						<div class="well">
+						{% for i in range(dimension)%}
+							
+						X{{i+1}}<input class="btn btn-primary"type="text" size="4"  disabled value="{{x[i]}}"/>	
+							<br/>
+							<br/>		
+						{% endfor %}
+									
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+			
+		</div>
+
+	</div>
+	
+{%else%}
+	<div class="alert alert-dismissable alert-warning">
+    	<button type="button" class="close" data-dismiss="alert">×</button>
+    	<h4>Attention!</h4>
+    	<p>Impossible de resoudre cette équation</p>
+	</div>
+	
+   <script>
+    document.location.href="/";
+   </script>
+
+{%endif%}
+
+
+
+{%endblock%}

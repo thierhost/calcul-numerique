@@ -1,0 +1,21 @@
+<script>
+				function Veriff()
+				{
+				
+				
+				var inputs = document.getElementsByTagName("input");
+				result=false;
+				valeur = inputs.value;
+				if((valeur>1)&&(valeur<=10))
+				{
+					result=true;
+				}
+				if(result==false)
+				{
+					alert('Le nombre doit etre compris entre 1 et 10' );
+					return false;
+				}	
+
+
+				}
+		</script>

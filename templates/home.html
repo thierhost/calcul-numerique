@@ -1,0 +1,105 @@
+{% block html_debut %}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <meta charset="utf-8"/>
+  <META HTTP-EQUIV="Content-Language" CONTENT="FR"/> 
+    <META http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="inputHub"/>
+  <meta name="contactstate" content="SENEGAl"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap/css/bootstrap.css')}}"/>  
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/material-fullpalette.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/material-fullpalette.min.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/material.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/material.min.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/ripples.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/ripples.min.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/css/roboto.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}"/>
+
+  <title> {% block titre%} Titre de la pge {%endblock%} </title> 
+ <script>
+        function Veriff()
+        {
+        
+        var valeur=Number(document.forms["gauss"]["taille"].value);
+        bool=false;
+        if(valeur>1 && valeur<=10)
+        {
+          bool=true;
+        }
+        if(bool==true)
+        {
+          return true;
+        }else
+        {
+          alert("La taille de la matrice doit etre comprise entre 1 et 10");
+          return false;
+        }    
+        }
+    </script>
+
+
+ </head>  
+ <body>
+  
+  {%endblock%}
+  
+  {%block menu %}
+
+<div class="navbar navbar-material-light-blue-300">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-material-light-blue-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">Calcul Numérique</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-material-light-blue-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+      <li><a href="/inverse">Inverse</a></li>
+      <li><a href="/lu">LU</a></li>
+      <li><a href="/cholesky">Cholesky</a></li>
+      <li><a href="/jeu">Jeux</a></li>
+      <li class="dropdown">
+        <a href="#" data-toggle="dropdown">Systemes Linéaires <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="/gauss">Gauss</a></li>
+          <li><a href="/resolution_lu">LU</a></li>
+          <li><a href="/resolution_cholesky">Cholesky</a></li>
+        </ul>
+      </li>    
+  </ul>
+  </div>
+</div>
+{%endblock%}
+
+{% block container%}
+
+{%endblock%}
+ 
+
+{% block html_fin %}
+ <script type="text/javascript" src="{{url_for("static",filename="jquery/jquery.js")}}"></script>
+ <script type="text/javascript" src="{{url_for("static",filename="bootstrap/js/bootstrap.js")}}"></script>
+ <script type="text/javascript" src="{{url_for("static",filename="dist/js/material.js")}}"></script>
+ <script type="text/javascript" src="{{url_for("static",filename="dist/js/material.min.js")}}"></script>
+ <script type="text/javascript" src="{{url_for("static",filename="dist/js/ripples.js")}}"></script>
+ <script type="text/javascript" src="{{url_for("static",filename="dist/js/ripples.min.js")}}"></script>
+<script type="text/javascript" src="{{url_for("static",filename="script.js")}}"></script>
+
+ <script type="text/javascript">
+
+$(function(){
+$("div.alert").hide("slow").delay(10000).show("slow");
+});
+ </script>
+
+ </body>
+ </html>
+{%endblock%}

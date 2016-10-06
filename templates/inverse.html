@@ -1,0 +1,98 @@
+{% extends "home.html"%}
+
+
+{% block titre%} Résolution de Gauss  {%endblock%}
+
+{% block container%}
+
+
+{% if taille is defined %}
+	<!--  Quand on soummet le formulaire ici la taille est disponible       -->	
+	<!--  On va generer un formulaire pour calculer l'inverse de la matrice -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="panel panel-primary	">
+					<div class="panel-heading text-center">
+						<h1 class="text-danger"> Les coordonées de la matrice</h1>
+
+					</div>
+					<div class="panel-body">
+		
+                    		<form  action="/result" id="form1"  name="matrice"  method="POST">
+
+					   			<input type="hidden" name="dim" value="{{taille}}"/>
+					   			{% for i in range(taille) %}
+					   				{% for j in range(taille) %}			
+										<input type="text" size="5"  required   name="rang{{i|string+j|string}}"/>
+
+									{% endfor %}
+									<br/>
+									<br/>
+								{% endfor %}
+
+					   			
+					   		</form>
+					   	
+					</div>
+					<div class="panel-footer">
+						<div class="form-group">
+                            
+                                   
+                             <button type="submit" class="btn btn-primary" form="form1">OK</button>
+                          
+                      	</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+{% else%}
+	<!--  Le  formulaire par defaut à afficher  -->
+
+	<div class="container">
+		<div class="page-header">
+    			<h1> Inverser une matrice par la methode de Gauss</h1> 
+       </div>
+	
+		<div class="row">
+			<div class="col-md-6">
+				<div class="well bs-component">
+                    <form class="form-horizontal" action="" name="gauss" method="POST"  onsubmit="return Veriff();">
+					   <div class="form-group">
+                         <label for="text" class="col-md-4 control-label">Taille de la matrice</label>
+                            <div class="col-md-6">
+                              <input type="number" class="form-control" name="taille" placeholder="Taille de la matrice">
+                            </div>              
+                       </div>
+
+                       	<div class="form-group">
+                            <div class="col-md-4 col-md-offset-8">
+                                   
+                             <button type="submit" class="btn btn-primary">Envoyer</button>
+                           </div>
+                      	</div>
+                     </form>
+					
+			</div>
+		</div>
+
+	</div>
+
+</div>
+	
+{%endif%}
+<!--   -->
+
+
+
+{%endblock%}

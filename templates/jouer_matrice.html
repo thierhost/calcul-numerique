@@ -1,0 +1,126 @@
+{% extends "home.html"%}
+
+
+{% block titre%} Décomposition Cholesky  {%endblock%}
+
+{% block container%}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6">
+			<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h2 class="text-center">
+							Matrice: A
+						</h2>
+					</div>
+					<div class="body">
+						
+						<div class="well">
+						{% for i in range(taille)%}
+							{% for j in range(taille)%}
+								<input class="btn btn-primary"type="text" size="5"  disabled value="{{a[i][j]}}"/>	
+							{% endfor %}
+							<br/>
+							<br/>		
+						{% endfor %}
+									
+						</div>
+
+					</div>
+				</div>
+
+		</div> 	
+	</div>	
+</div>
+<div class="container-fluid">
+	<div class="page-header">
+        	<h1 class="text-danger text-center">
+        		<i class="btn btn-default btn-fab btn-raised mdi-action-grade"></i>
+        		Trouver la bonne solution! 
+        		<i class="btn btn-primary btn-fab btn-raised mdi-action-grade"></i>
+        	</h1>
+    </div>  
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-success">
+    			<div class="panel-heading">
+    				<h1 class="text-center text-danger"> 4 matrices une solution!</h1>
+    			</div>
+    			<div class="panel-body">
+    				<div class="row">
+    					<div class="col-md-6">
+ 							<form class="well bs-component matrice_1"  onclick="jeu1();">
+ 								{% for i in range(taille)%}
+									{% for j in range(taille)%}
+									<input class="btn btn-primary"type="text" size="5" name="matricea{{i|string+j|string}}"disabled value="{{inverse[i][j]}}"/>	
+									{% endfor %}
+							<br/>		
+						{% endfor %}	
+ 							</form> 	
+    					</div>
+
+    					<div class="col-md-6 matrice_inv">
+    						<form class="well bs-component  matrice_2" name="matrice_2" onclick="jeu2();">
+ 								{% for i in range(taille)%}
+									{% for j in range(taille)%}
+									<input class="btn btn-primary"type="text" size="5"  disabled value="{{b[i][j]}}"/>	
+									{% endfor %}
+							<br/>		
+						{% endfor %}	
+ 							</form> 
+
+    					
+    					</div>
+    					
+    					
+
+    				</div>
+    				<div class="row">
+    					<div class="col-md-6 matrice_inv">
+    						<form class="well bs-component  matrice_3" name="matrice_3" onclick="jeu3();">
+ 								{% for i in range(taille)%}
+									{% for j in range(taille)%}
+									<input class="btn btn-primary"type="text" size="5"  disabled value="{{c[i][j]}}"/>	
+									{% endfor %}
+							<br/>		
+						{% endfor %}	
+ 							</form> 
+
+    					
+    					</div>
+
+    					<div class="col-md-6 matrice_inv">
+    						<form class="well bs-component  matrice_4" name="matrice_4" onclick="jeu4();">
+ 								{% for i in range(taille)%}
+									{% for j in range(taille)%}
+									<input class="btn btn-primary"type="text" size="5"  disabled value="{{d[i][j]}}"/>	
+									{% endfor %}
+							<br/>		
+						{% endfor %}	
+ 							</form> 
+
+    					
+    					</div>
+    				</div>
+
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+</div>
+
+
+{%endblock%}
+	
+
+
+
+
+
+
+
+
+
+
